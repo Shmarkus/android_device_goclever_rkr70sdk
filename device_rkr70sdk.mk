@@ -17,7 +17,6 @@ endif
 PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel \
     $(LOCAL_PATH)/rk292xnand_ko.ko:root/rk292xnand_ko.ko \
-    $(LOCAL_PATH)/init.rc:root/init.rc \
     $(LOCAL_PATH)/init:root/init
 
 $(call inherit-product, build/target/product/full.mk)
@@ -35,7 +34,10 @@ PRODUCT_PROPERTY_OVERRIDES += ro.sf.lcd_density=120 \
 	rild.libargs=-d_/dev/ttyUSB1 \
 	ril.pppchannel=/dev/ttyUSB2 \
 	rild.libpath=/system/lib/libril-rk29-dataonly.so \
-	ril.function.dataonly=1
+	ril.function.dataonly=1 \
+	dalvik.vm.dexopt-flags=m=y \
+	dalvik.vm.jniopts=warnonly \
+	dalvik.vm.dexopt-data-only=1 \
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml \

@@ -18,7 +18,7 @@
 
 VENDOR=goclever
 DEVICE=rkr70sdk
-VENDPATH=~/android/system/vendor 
+VENDPATH=~/git/system/vendor 
 
 mkdir -p $VENDPATH/$VENDOR/$DEVICE/proprietary
 

@@ -18,7 +18,8 @@ system/lib/libstagefrighthw.so
 system/lib/libsurfaceflinger.so 
 system/lib/libvpu.so 
 system/lib/libyuvtorgb.so 
-system/lib/registry 
+system/lib/registry
+system/lib/libMali.so  
 system/lib/modules/8188eu.ko
 system/lib/modules/8188eu.ko.3.0.8+
 system/lib/modules/8192cu.ko
@@ -68,7 +69,8 @@ system/lib/hw/sensors.rk2928board.so
 system/lib/egl/libEGL_mali.so 
 system/lib/egl/libGLES_android.so 
 system/lib/egl/libGLESv1_CM_mali.so 
-system/lib/egl/libGLESv2_mali.so 
+system/lib/egl/libGLESv2_mali.so
+system/lib/egl/egl.cfg  
 system/bin/akmd8975 
 system/bin/hostapd_rtl 
 system/bin/mkntfs 

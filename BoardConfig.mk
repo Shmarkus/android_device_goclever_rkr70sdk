@@ -53,3 +53,10 @@ BOARD_USES_HDMI := false
 #Audio
 BOARD_USES_GENERIC_AUDIO := false
 BOARD_USES_ALSA_AUDIO := true
+
+# Releasetools
+TARGET_RELEASETOOLS_EXTENSIONS := device/goclever/rkr70sdk/releasetools
+TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := device/goclever/rkr70sdk/releasetools/rk292x_ota_from_target_files
+
+# Graphics
+BOARD_EGL_CFG := device/goclever/rkr70sdk/egl.cfg
