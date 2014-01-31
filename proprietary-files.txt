@@ -15,7 +15,6 @@ system/lib/libril-rk29-dataonly.so
 system/lib/librkswscale.so 
 system/lib/librkwmapro.so 
 system/lib/libstagefrighthw.so 
-system/lib/libsurfaceflinger.so 
 system/lib/libvpu.so 
 system/lib/libyuvtorgb.so 
 system/lib/registry
@@ -76,6 +75,9 @@ system/bin/hostapd_rtl
 system/bin/mkntfs 
 system/bin/ntfs-3g 
 system/bin/performance 
-system/bin/vdc 
-system/bin/surfaceflinger 
-system/bin/vold
+system/bin/vdc  
+system/etc/vold.fstab
+system/usr/keylayout/rk29-keypad.kl
+system/etc/wifi/wpa_supplicant.conf
+system/usr/idc/qwerty.idc
+system/usr/idc/qwerty2.idc
