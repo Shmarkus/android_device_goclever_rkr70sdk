@@ -26,7 +26,7 @@ PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 PRODUCT_PROPERTY_OVERRIDES += ro.sf.lcd_density=120 \
 	sf.power.control=2073600 \
 	ro.sf.fakerotation=true \
-	ro.sf.hwrotation=270 \
+	ro.sf.hwrotation=0 \
 	wifi.interface=wlan0 \
 	ro.rk.screenoff_time=60000 \
 	ro.rk.def_brightness=110 \
@@ -38,6 +38,7 @@ PRODUCT_PROPERTY_OVERRIDES += ro.sf.lcd_density=120 \
 	dalvik.vm.dexopt-flags=m=y \
 	dalvik.vm.jniopts=warnonly \
 	dalvik.vm.dexopt-data-only=1 \
+    ro.opengles.version=131072 \
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml \
@@ -48,6 +49,17 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
     frameworks/native/data/etc/android.hardware.touchscreen.multitouch.distinct.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.distinct.xml \
     frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml \
+
+PRODUCT_PACKAGES += \
+    power.rk2928board \
+    sensors.rk2928board \
+    gralloc.rk2928board \
+    hwcomposer.rk2928board \
+    lights.rk2928board \
+    camera.rk2928board \
+    gpu.rk2928board \
+    Camera \
+    akmd 
 
 $(call inherit-product, frameworks/native/build/tablet-dalvik-heap.mk)
 
