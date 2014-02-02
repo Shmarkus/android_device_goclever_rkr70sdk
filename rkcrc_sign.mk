@@ -27,7 +27,7 @@ INSTALLED_RECOVERYIMAGE_TARGET := $(PRODUCT_OUT)/recovery.img
 
 $(INSTALLED_BOOTIMAGE_TARGET): $(INSTALLED_RAMDISK_TARGET) $(RKCRC) 
 	$(call pretty,"Boot image: $@")
-	$(hide) cd $(PRODUCT_OUT)/root && find . | cpio --quiet -o -H newc | gzip -n > $(GZ_BOOTIMAGE_TARGET)
+	$(hide) cd $(PRODUCT_OUT)/root && chmod 750 charger init* && chmod 750 -R sbin && chmod 644 ueventd* default.prop && find . | cpio --quiet -o -H newc | gzip -n > $(GZ_BOOTIMAGE_TARGET)
 	$(hide)	$(RKCRC) -k $(GZ_BOOTIMAGE_TARGET) $@
 	@echo ----- Made boot image -------- $@
 $(INSTALLED_RECOVERYIMAGE_TARGET): $(recovery_ramdisk) $(RKCRC) 
