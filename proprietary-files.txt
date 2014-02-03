@@ -1,7 +1,5 @@
 rk292xnand_ko.ko
 charger
-system/lib/gralloc.rk2928board.so 
-system/lib/hwcomposer.rk2928board.so 
 system/lib/libOMX_Core.so 
 system/lib/libUMP.so 
 system/lib/libapedec.so 
@@ -75,7 +73,10 @@ system/bin/hostapd_rtl
 system/bin/mkntfs 
 system/bin/ntfs-3g 
 system/bin/performance 
-system/bin/vdc  
+system/bin/vdc
+system/bin/vold
+system/bin/wpa_supplicant
+system/bin/wpa_cli
 system/etc/vold.fstab
 system/usr/keylayout/rk29-keypad.kl
 system/etc/wifi/wpa_supplicant.conf
