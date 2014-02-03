@@ -1,0 +1,3 @@
+on early-init
+    insmod /rk292xnand_ko.ko
+    write /sys/bus/platform/drivers/usb20_otg/force_usb_mode 2
