@@ -6,7 +6,7 @@ $(call inherit-product, device/common/gps/gps_us_supl.mk)
 $(call inherit-product-if-exists, vendor/goclever/rkr70sdk/rkr70sdk-vendor.mk)
 
 DEVICE_PACKAGE_OVERLAYS += device/goclever/rkr70sdk/overlay
-
+VENDOR_PATH := vendor/goclever/rkr70sdk
 LOCAL_PATH := device/goclever/rkr70sdk
 ifeq ($(TARGET_PREBUILT_KERNEL),)
 	LOCAL_KERNEL := $(LOCAL_PATH)/kernel
@@ -14,14 +14,30 @@ else
 	LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
 endif
 
+# Ramdisk
 PRODUCT_COPY_FILES += \
-    $(LOCAL_KERNEL):kernel \
-    $(LOCAL_PATH)/rk292xnand_ko.ko:root/rk292xnand_ko.ko \
-    $(LOCAL_PATH)/init:root/init
+	$(LOCAL_KERNEL):kernel \
+	$(LOCAL_PATH)/ramdisk/init.rc:root/init.rc \
+	$(LOCAL_PATH)/ramdisk/init.rk2928board.rc:root/init.rk2928board.rc \
+	$(LOCAL_PATH)/ramdisk/init.rk2928board.usb.rc:root/init.rk2928board.usb.rc \
+	$(LOCAL_PATH)/ramdisk/init.recovery.rk2928board.rc:root/init.recovery.rk2928board.rc \
+	$(LOCAL_PATH)/ramdisk/ueventd.rk2928board.rc:root/ueventd.rk2928board.rc \
+	$(VENDOR_PATH)/proprietary/rk292xnand_ko.ko:root/rk292xnand_ko.ko \
+	$(VENDOR_PATH)/proprietary/charger:root/charger \
+	$(VENDOR_PATH)/proprietary/res/images/charger/battery_0.png:root/res/images/charger/battery_0.png \
+	$(VENDOR_PATH)/proprietary/res/images/charger/battery_1.png:root/res/images/charger/battery_1.png \
+	$(VENDOR_PATH)/proprietary/res/images/charger/battery_2.png:root/res/images/charger/battery_2.png \
+	$(VENDOR_PATH)/proprietary/res/images/charger/battery_3.png:root/res/images/charger/battery_3.png \
+	$(VENDOR_PATH)/proprietary/res/images/charger/battery_4.png:root/res/images/charger/battery_4.png \
+	$(VENDOR_PATH)/proprietary/res/images/charger/battery_5.png:root/res/images/charger/battery_5.png \
+	$(VENDOR_PATH)/proprietary/res/images/charger/battery_charge.png:root/res/images/charger/battery_charge.png \
+	$(VENDOR_PATH)/proprietary/res/images/charger/battery_fail.png:root/res/images/charger/battery_fail.png
 
 $(call inherit-product, build/target/product/full.mk)
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
+
+PRODUCT_TAGS += dalvik.gc.type-precise
 
 PRODUCT_PROPERTY_OVERRIDES += ro.sf.lcd_density=120 \
 	sf.power.control=2073600 \
@@ -37,18 +53,29 @@ PRODUCT_PROPERTY_OVERRIDES += ro.sf.lcd_density=120 \
 	ril.function.dataonly=1 \
 	dalvik.vm.dexopt-flags=m=y \
 	dalvik.vm.jniopts=warnonly \
-	dalvik.vm.dexopt-data-only=1 \
     ro.opengles.version=131072 \
+    libc.debug.malloc=10
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml \
-    frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml \
-    frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
     frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
     frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
-    frameworks/native/data/etc/android.hardware.touchscreen.multitouch.distinct.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.distinct.xml \
+    frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
+    frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml \
     frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml \
+    frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml
+
+# Publish that we support the live wallpaper feature.
+PRODUCT_PACKAGES += \
+	LiveWallpapers \
+	LiveWallpapersPicker \
+	MagicSmokeWallpapers \
+	HoloSpiralWallpaper 
+
+PRODUCT_PACKAGES += \
+	VisualizationWallpapers \
+	librs_jni
 
 PRODUCT_PACKAGES += \
     power.rk2928board \
@@ -61,6 +88,19 @@ PRODUCT_PACKAGES += \
     Camera \
     akmd 
 
+# audio lib
+PRODUCT_PACKAGES += \
+    audio_policy.rk2928board \
+    audio.primary.rk2928board 
+
+PRODUCT_PACKAGES += \
+    com.android.future.usb.accessory
+    
+# EXT4 Support
+PRODUCT_PACKAGES += \
+	make_ext4fs \
+	e2fsck
+	
 $(call inherit-product, frameworks/native/build/tablet-dalvik-heap.mk)
 
 PRODUCT_NAME := full_rkr70sdk
