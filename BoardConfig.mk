@@ -40,10 +40,6 @@ BOARD_UMS_LUNFILE := /sys/class/android_usb/android0/f_mass_storage/lun/file
 BOARD_UMS_2ND_LUNFILE := /sys/class/android_usb/android0/f_mass_storage/lun1/file
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storage/lun/file
 
-#Bluetooth
-BOARD_HAVE_BLUETOOTH := false
-BOARD_HAVE_BLUETOOTH_CSR := false
-
 #HDMI
 TARGET_HAVE_HDMI_OUT := false
 BOARD_USES_HDMI := false
@@ -72,3 +68,5 @@ COMMON_GLOBAL_CFLAGS += -DSURFACEFLINGER_FORCE_SCREEN_RELEASE -DNO_RGBX_8888 -DM
 
 # HWComposer
 BOARD_USES_HWCOMPOSER := true
+
+TARGET_EXTRA_CFLAGS += $(call cc-option,-mtune=cortex-a9,$(call cc-option,-mtune=cortex-a8)) $(call cc-option,-mcpu=cortex-a9,$(call cc-option,-mcpu=cortex-a8))
