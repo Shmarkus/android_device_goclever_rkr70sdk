@@ -44,15 +44,10 @@ loglevel 3
 # Backward compatibility
     symlink /system/etc /etc
     symlink /sys/kernel/debug /d
-    symlink /mnt/sdcard /sdcard
 
 # Right now vendor lives on the same filesystem as system,
 # but someday that may change.
     symlink /system/vendor /vendor
-
-# create mountpoints
-    mkdir /mnt/sdcard 0000 system system
-     mkdir /external_sd 0000 system system
 
 # Create cgroup mount point for cpu accounting
     mkdir /acct
@@ -142,8 +137,6 @@ on fs
 
     insmod /system/lib/modules/ump.ko
     insmod /system/lib/modules/mali.ko
-    insmod /system/lib/modules/wlan.ko
-    insmod /system/lib/modules/8188eu.ko
 
 on post-fs
     # once everything is setup, no need to modify /
@@ -390,9 +383,9 @@ on nonencrypted
     class_start late_start
 
 on charger
-     insmod /rk292xnand_ko.ko
-     # mount mtd partitions
-     mount ext4 mtd@userdata /data wait noatime nodiratime nosuid nodev noauto_da_alloc
+    insmod /rk292xnand_ko.ko
+    # mount mtd partitions
+    mount ext4 mtd@userdata /data wait noatime nodiratime nosuid nodev noauto_da_alloc
     class_start charger
 
 on property:vold.decrypt=trigger_reset_main
@@ -591,10 +584,6 @@ service installd /system/bin/installd
     class main
     socket installd stream 600 system system
 
-service flash_recovery /system/etc/install-recovery.sh
-    class main
-    oneshot
-
 service racoon /system/bin/racoon
     class main
     socket racoon stream 600 system system
@@ -638,6 +627,4 @@ service mdnsd /system/bin/mdnsd
     socket mdnsd stream 0660 mdnsr inet
     disabled
     oneshot
-service whtest /system/bin/whtest.sh
-    disabled
-    oneshot
+

@@ -20,9 +20,9 @@ on post-fs-data
     chown media_rw media_rw /data/media
 
 on init
-    symlink /etc/bluez/bcm432x/BCM4329B1_TestOnly_0237_26MHz_SEMCO_B23.hcd /bcm4329_samsung.hcd
-    symlink /etc/bluez/bcm432x/BCM4329B1_USI_WM-BN-BM-01.hcd /bcm4329_usi.hcd
-    symlink /etc/bluez/bcm432x/BCM4329B1_002.002.023.0389.0000_Cybertan-Foxconn_Cls2_extLNA_EDRmaxInputLev+PeakDEVM_NT.hcd /bcm4329_cybertan.hcd
+    #symlink /etc/bluez/bcm432x/BCM4329B1_TestOnly_0237_26MHz_SEMCO_B23.hcd /bcm4329_samsung.hcd
+    #symlink /etc/bluez/bcm432x/BCM4329B1_USI_WM-BN-BM-01.hcd /bcm4329_usi.hcd
+    #symlink /etc/bluez/bcm432x/BCM4329B1_002.002.023.0389.0000_Cybertan-Foxconn_Cls2_extLNA_EDRmaxInputLev+PeakDEVM_NT.hcd /bcm4329_cybertan.hcd
 # for adobe reader mobile
     export RK_ADOBE_DE_MOBILE 1
     export EBOOK_PAGE_VISIBLE_NUMBER 2
@@ -183,10 +183,6 @@ service bugreport /system/bin/bugreport.sh
     disabled
     oneshot
     keycodes 114 115 116
-
-service chrome /system/bin/chrome.sh
-    class main
-    oneshot
 
 service dhcpcd_eth0 /system/bin/dhcpcd -ABKL
     class main
