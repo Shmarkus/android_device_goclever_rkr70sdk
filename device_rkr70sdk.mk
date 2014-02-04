@@ -39,7 +39,9 @@ PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
 PRODUCT_TAGS += dalvik.gc.type-precise
 
-PRODUCT_PROPERTY_OVERRIDES += persist.sys.usb.config=mtp \
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.product.usbfactory=rockchip_usb \ 
+    persist.sys.usb.config=mass_storage,adb \
     sys.hwc.compose_policy=0 \
 	ro.sf.lcd_density=120 \
 	sf.power.control=2073600 \
@@ -82,21 +84,21 @@ PRODUCT_PACKAGES += \
 	libjni_pinyinime \
 	hostapd_rtl
 
-PRODUCT_PACKAGES += \
-    power.rk2928board \
-    sensors.rk2928board \
-    gralloc.rk2928board \
-    hwcomposer.rk2928board \
-    lights.rk2928board \
-    camera.rk2928board \
-    gpu.rk2928board \
-    akmd \
-    drmservice
+#PRODUCT_PACKAGES += \
+#    power.rk2928board \
+#    sensors.rk2928board \
+#    gralloc.rk2928board \
+#    hwcomposer.rk2928board \
+#    lights.rk2928board \
+#    camera.rk2928board \
+#    gpu.rk2928board \
+#    akmd \
+#    drmservice
 
 # audio lib
-PRODUCT_PACKAGES += \
-    audio_policy.rk2928board \
-    audio.primary.rk2928board 
+#PRODUCT_PACKAGES += \
+#    audio_policy.rk2928board \
+#    audio.primary.rk2928board 
 
 PRODUCT_PACKAGES += \
     com.android.future.usb.accessory
