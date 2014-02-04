@@ -39,7 +39,9 @@ PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
 PRODUCT_TAGS += dalvik.gc.type-precise
 
-PRODUCT_PROPERTY_OVERRIDES += ro.sf.lcd_density=120 \
+PRODUCT_PROPERTY_OVERRIDES += persist.sys.usb.config=mtp \
+    sys.hwc.compose_policy=0 \
+	ro.sf.lcd_density=120 \
 	sf.power.control=2073600 \
 	ro.sf.fakerotation=true \
 	ro.sf.hwrotation=0 \
@@ -71,11 +73,14 @@ PRODUCT_PACKAGES += \
 	LiveWallpapers \
 	LiveWallpapersPicker \
 	MagicSmokeWallpapers \
-	HoloSpiralWallpaper 
+	HoloSpiralWallpaper \
+	Email
 
 PRODUCT_PACKAGES += \
 	VisualizationWallpapers \
-	librs_jni
+	librs_jni \
+	libjni_pinyinime \
+	hostapd_rtl
 
 PRODUCT_PACKAGES += \
     power.rk2928board \
@@ -85,8 +90,8 @@ PRODUCT_PACKAGES += \
     lights.rk2928board \
     camera.rk2928board \
     gpu.rk2928board \
-    Camera \
-    akmd 
+    akmd \
+    drmservice
 
 # audio lib
 PRODUCT_PACKAGES += \
@@ -96,10 +101,17 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     com.android.future.usb.accessory
     
+PRODUCT_COPY_FILES += \
+    $(VENDOR_PATH)/proprietary/system/etc/vold.fstab:system/etc/vold.fstab     
+    
 # EXT4 Support
 PRODUCT_PACKAGES += \
 	make_ext4fs \
-	e2fsck
+	e2fsck \
+	mkdisfs \
+	mke2fs \
+	tune2fs \
+	resize2fs
 	
 $(call inherit-product, frameworks/native/build/tablet-dalvik-heap.mk)
 
