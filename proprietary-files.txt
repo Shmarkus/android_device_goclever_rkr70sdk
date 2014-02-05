@@ -78,6 +78,7 @@ system/bin/vold
 system/bin/wpa_supplicant
 system/bin/wpa_cli
 system/bin/drmservice
+system/bin/drmserver
 system/etc/vold.fstab
 system/usr/keylayout/rk29-keypad.kl
 system/etc/wifi/wpa_supplicant.conf
