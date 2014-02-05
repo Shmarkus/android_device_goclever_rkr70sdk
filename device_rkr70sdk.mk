@@ -22,16 +22,7 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/ramdisk/init.rk2928board.usb.rc:root/init.rk2928board.usb.rc \
 	$(LOCAL_PATH)/ramdisk/init.recovery.rk2928board.rc:root/init.recovery.rk2928board.rc \
 	$(LOCAL_PATH)/ramdisk/ueventd.rk2928board.rc:root/ueventd.rk2928board.rc \
-	$(VENDOR_PATH)/proprietary/rk292xnand_ko.ko:root/rk292xnand_ko.ko \
-	$(VENDOR_PATH)/proprietary/charger:root/charger \
-	$(VENDOR_PATH)/proprietary/res/images/charger/battery_0.png:root/res/images/charger/battery_0.png \
-	$(VENDOR_PATH)/proprietary/res/images/charger/battery_1.png:root/res/images/charger/battery_1.png \
-	$(VENDOR_PATH)/proprietary/res/images/charger/battery_2.png:root/res/images/charger/battery_2.png \
-	$(VENDOR_PATH)/proprietary/res/images/charger/battery_3.png:root/res/images/charger/battery_3.png \
-	$(VENDOR_PATH)/proprietary/res/images/charger/battery_4.png:root/res/images/charger/battery_4.png \
-	$(VENDOR_PATH)/proprietary/res/images/charger/battery_5.png:root/res/images/charger/battery_5.png \
-	$(VENDOR_PATH)/proprietary/res/images/charger/battery_charge.png:root/res/images/charger/battery_charge.png \
-	$(VENDOR_PATH)/proprietary/res/images/charger/battery_fail.png:root/res/images/charger/battery_fail.png
+	$(VENDOR_PATH)/proprietary/rk292xnand_ko.ko:root/rk292xnand_ko.ko
 
 $(call inherit-product, build/target/product/full.mk)
 
@@ -41,7 +32,6 @@ PRODUCT_TAGS += dalvik.gc.type-precise
 
 PRODUCT_PROPERTY_OVERRIDES += ro.sf.lcd_density=120 \
     ro.product.usbfactory=rockchip_usb \
-    persist.sys.usb.config=mtp \
     sys.hwc.compose_policy=0 \
 	sf.power.control=2073600 \
 	ro.sf.fakerotation=true \
@@ -92,7 +82,10 @@ PRODUCT_PACKAGES += \
     camera.rk2928board \
     gpu.rk2928board \
     akmd \
-    drmservice
+    drmservice \
+    LegacyCamera \
+    charger \
+	charger_res_images
 
 # audio lib
 PRODUCT_PACKAGES += \
@@ -113,6 +106,10 @@ PRODUCT_PACKAGES += \
 	mke2fs \
 	tune2fs \
 	resize2fs
+
+# Set default USB interface
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    persist.sys.usb.config=mass_storage
 	
 $(call inherit-product, frameworks/native/build/tablet-dalvik-heap.mk)
 
