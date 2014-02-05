@@ -1,4 +1,4 @@
-USE_CAMERA_STUB := true
+#USE_CAMERA_STUB := true
 
 # inherit from the proprietary version
 -include vendor/goclever/rkr70sdk/BoardConfigVendor.mk
@@ -68,5 +68,10 @@ COMMON_GLOBAL_CFLAGS += -DSURFACEFLINGER_FORCE_SCREEN_RELEASE -DNO_RGBX_8888 -DM
 
 # HWComposer
 BOARD_USES_HWCOMPOSER := true
+
+# Camera Setup
+USE_CAMERA_STUB := false
+BOARD_CAMERA_USE_MM_HEAP := true
+COMMON_GLOBAL_CFLAGS += -DICS_CAMERA_BLOB
 
 TARGET_EXTRA_CFLAGS += $(call cc-option,-mtune=cortex-a9,$(call cc-option,-mtune=cortex-a8)) $(call cc-option,-mcpu=cortex-a9,$(call cc-option,-mcpu=cortex-a8))
