@@ -41,6 +41,7 @@ PRODUCT_TAGS += dalvik.gc.type-precise
 
 PRODUCT_PROPERTY_OVERRIDES += ro.sf.lcd_density=120 \
     ro.product.usbfactory=rockchip_usb \
+    persist.sys.usb.config=mtp \
     sys.hwc.compose_policy=0 \
 	sf.power.control=2073600 \
 	ro.sf.fakerotation=true \
@@ -81,6 +82,22 @@ PRODUCT_PACKAGES += \
 	librs_jni \
 	libjni_pinyinime \
 	hostapd_rtl
+
+PRODUCT_PACKAGES += \
+    power.rk2928board \
+    sensors.rk2928board \
+    gralloc.rk2928board \
+    hwcomposer.rk2928board \
+    lights.rk2928board \
+    camera.rk2928board \
+    gpu.rk2928board \
+    akmd \
+    drmservice
+
+# audio lib
+PRODUCT_PACKAGES += \
+    audio_policy.rk2928board \
+    audio.primary.rk2928board
 
 PRODUCT_PACKAGES += \
     com.android.future.usb.accessory
