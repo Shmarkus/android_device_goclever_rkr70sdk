@@ -53,7 +53,9 @@ system/etc/firmware/nvram_RK903.txt
 system/etc/firmware/nvram_RK903_26M.cal 
 system/etc/firmware/otp.bin.z77 
 system/etc/firmware/sd8686.bin 
-system/etc/firmware/sd8686_helper.bin 
+system/etc/firmware/sd8686_helper.bin
+system/etc/permissions/features.xml 
+system/etc/permissions/platform.xml  
 system/lib/hw/audio.primary.rk2928board.so 
 system/lib/hw/audio_policy.rk2928board.so 
 system/lib/hw/camera.rk2928board.so 
