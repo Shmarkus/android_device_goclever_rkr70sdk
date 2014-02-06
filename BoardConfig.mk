@@ -11,7 +11,7 @@ TARGET_CPU_ABI2 := armeabi
 TARGET_ARCH_VARIANT := armv7-a-neon
 ARCH_ARM_HAVE_TLS_REGISTER := true
 
-TARGET_BOOTLOADER_BOARD_NAME := rk2928sdk #rkr70sdk
+TARGET_BOOTLOADER_BOARD_NAME := rk2928sdk
 
 BOARD_KERNEL_CMDLINE := console=ttyFIQ0 androidboot.console=ttyFIQ0 init=/init initrd=0x62000000,0x00240000 mtdparts=rk29xxnand:0x00002000@0x00000000(parameter),0x00002000@0x00002000(misc),0x00004000@0x00004000(kernel),0x00008000@0x00008000(boot),0x00010000@0x00010000(recovery),0x00020000@0x00020000(backup),0x00040000@0x00040000(cache),0x00200000@0x00080000(userdata),0x00002000@0x00280000(kpanic),0x00100000@0x00282000(system),-@0x00382000(user) bootver=2012-12-25#1.24 firmware_ver=4.1.1
 
@@ -57,16 +57,13 @@ BOARD_EGL_CFG := vendor/goclever/rkr70sdk/proprietary/system/lib/egl/egl.cfg
 USE_OPENGL_RENDERER := true
 TARGET_DISABLE_TRIPLE_BUFFERING := true
 ENABLE_WEBGL := true
-BOARD_NEEDS_MEMORYHEAPPMEM := true
-TARGET_USES_ION := true
 # For WebKit rendering issue
 TARGET_FORCE_CPU_UPLOAD := true
 
-
-BOARD_USES_PROPRIETARY_OMX := false
 COMMON_GLOBAL_CFLAGS += -DSURFACEFLINGER_FORCE_SCREEN_RELEASE -DNO_RGBX_8888 -DMISSING_GRALLOC_BUFFERS
 
 # HWComposer
 BOARD_USES_HWCOMPOSER := true
 
 TARGET_EXTRA_CFLAGS += $(call cc-option,-mtune=cortex-a9,$(call cc-option,-mtune=cortex-a8)) $(call cc-option,-mcpu=cortex-a9,$(call cc-option,-mcpu=cortex-a8))
+TARGET_EXTRA_CPPFLAGS += $(call cc-option,-mtune=cortex-a9,$(call cc-option,-mtune=cortex-a8)) $(call cc-option,-mcpu=cortex-a9,$(call cc-option,-mcpu=cortex-a8))
