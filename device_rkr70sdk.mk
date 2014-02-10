@@ -55,9 +55,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
     frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
     frameworks/native/data/etc/android.hardware.touchscreen.multitouch.distinct.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.distinct.xml \
-    frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml \
-    $(VENDOR_PATH)/proprietary/system/etc/permissions/features.xml:system/etc/permissions/features.xml \
-    $(VENDOR_PATH)/proprietary/system/etc/permissions/platform.xml:system/etc/permissions/platform.xml
+    frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml
 
 # Publish that we support the live wallpaper feature.
 PRODUCT_PACKAGES += \
