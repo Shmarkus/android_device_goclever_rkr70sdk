@@ -61,43 +61,25 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
 	LiveWallpapers \
 	LiveWallpapersPicker \
+	VisualizationWallpapers \
 	MagicSmokeWallpapers \
 	HoloSpiralWallpaper \
-	Email
+	Email \
+	Camera
 
 PRODUCT_PACKAGES += \
-	VisualizationWallpapers \
 	librs_jni \
 	libjni_pinyinime \
-	hostapd_rtl \
-    akmd \
-    drmservice \
     charger \
 	charger_res_images\
 	make_ext4fs \
 	e2fsck \
-	mkdisfs \
 	mke2fs \
 	tune2fs \
 	resize2fs
 
-# device libs
-PRODUCT_PACKAGES += \
-    audio_policy.rk2928board \
-    audio.primary.rk2928board \
-    power.rk2928board \
-    sensors.rk2928board \
-    gralloc.rk2928board \
-    hwcomposer.rk2928board \
-    lights.rk2928board \
-    camera.rk2928board \
-    gpu.rk2928board
-
 PRODUCT_PACKAGES += \
     com.android.future.usb.accessory
-    
-PRODUCT_COPY_FILES += \
-    $(VENDOR_PATH)/proprietary/system/etc/vold.fstab:system/etc/vold.fstab     
     
 PRODUCT_TAGS += dalvik.gc.type-precise
 
