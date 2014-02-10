@@ -67,3 +67,15 @@ BOARD_USES_HWCOMPOSER := true
 
 TARGET_EXTRA_CFLAGS += $(call cc-option,-mtune=cortex-a9,$(call cc-option,-mtune=cortex-a8)) $(call cc-option,-mcpu=cortex-a9,$(call cc-option,-mcpu=cortex-a8))
 TARGET_EXTRA_CPPFLAGS += $(call cc-option,-mtune=cortex-a9,$(call cc-option,-mtune=cortex-a8)) $(call cc-option,-mcpu=cortex-a9,$(call cc-option,-mcpu=cortex-a8))
+
+# Wifi stuff
+BOARD_WIFI_VENDOR                := realtek
+WPA_SUPPLICANT_VERSION           := VER_0_8_X
+BOARD_WPA_SUPPLICANT_DRIVER      := NL80211
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_rtl
+BOARD_HOSTAPD_DRIVER             := NL80211
+BOARD_HOSTAPD_PRIVATE_LIB        := lib_driver_cmd_rtl
+BOARD_WLAN_DEVICE                := rtl8188eu
+
+WIFI_DRIVER_MODULE_PATH          := "/system/lib/modules/8188eu.ko"
+WIFI_DRIVER_MODULE_NAME          := wlan
