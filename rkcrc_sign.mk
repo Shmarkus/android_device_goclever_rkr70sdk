@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-RKCRC := ~/bin/rkcrc #$(HOST_OUT_EXECUTABLES)/rkcrc
+RKCRC := $(HOST_OUT_EXECUTABLES)/rkcrc
 
 GZ_BOOTIMAGE_TARGET := $(PRODUCT_OUT)/boot.gz
 GZ_RECOVERYIMAGE_TARGET := $(PRODUCT_OUT)/recovery.gz
