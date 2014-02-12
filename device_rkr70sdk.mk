@@ -65,7 +65,8 @@ PRODUCT_PACKAGES += \
 	MagicSmokeWallpapers \
 	HoloSpiralWallpaper \
 	Email \
-	Camera
+	Camera \
+	Gallery2
 
 PRODUCT_PACKAGES += \
 	librs_jni \
