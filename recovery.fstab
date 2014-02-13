@@ -1,10 +1,9 @@
 # mount point   fstype    device        [device2]
-/mnt/sdcard      vfat        /dev/block/mtd/by-name/user
-/mnt/external_sd vfat        /dev/block/mmcblk0p1    /dev/block/mmcblk0
-/system          ext4        /dev/block/mtd/by-name/system
-/cache           ext4        /dev/block/mtd/by-name/cache
-/data            ext4        /dev/block/mtd/by-name/userdata
-/cust            ext4        /dev/block/mtd/by-name/cust
+/sdcard          vfat        /dev/block/mtdblock10
+/external_sd     vfat        /dev/block/mmcblk0p1    /dev/block/mmcblk0
+/system          ext4        /dev/block/mtdblock9
+/cache           ext4        /dev/block/mtdblock6
+/data            ext4        /dev/block/mtdblock7
 /misc            mtd         misc
 /parameter       mtd         parameter
 /boot            mtd         boot
