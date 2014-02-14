@@ -3,10 +3,11 @@ android_device_goclever_rkr70sdk
 
 CM build parameters for GOCLEVER TAB R70 (Rockchip RK2926).
 
-6.0.2.8 CWM
+6.0.1.5 CWM
 ===========
 Please note that in order to build CWM for Rockchip, You also need to replace
-stock CWM with custom CWM found here: https://github.com/Shmarkus/android_bootable_recovery
+stock CWM with custom CWM found here: 
+https://github.com/Shmarkus/android_bootable_recovery branch:jellybean-stable or cm-10.1
 - USB mount does not work
 
 Android 4.1.2 
