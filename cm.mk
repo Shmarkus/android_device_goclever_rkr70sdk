@@ -11,6 +11,6 @@ $(call inherit-product, device/goclever/rkr70sdk/device_rkr70sdk.mk)
 PRODUCT_DEVICE := rkr70sdk
 PRODUCT_NAME := cm_rkr70sdk
 PRODUCT_BRAND := rkr70sdk
-PRODUCT_MODEL := GOCLEVER TAB R70
-PRODUCT_MANUFACTURER := rockchip
+PRODUCT_MODEL := TAB R70
+PRODUCT_MANUFACTURER := GoClever
 PRODUCT_CHARACTERISTICS := tablet
