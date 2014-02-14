@@ -45,7 +45,8 @@ PRODUCT_PROPERTY_OVERRIDES += ro.sf.lcd_density=120 \
     ro.opengles.version=131072 \
     libc.debug.malloc=10 \
     ro.product.usbfactory=rockchip_usb \
-    persist.sys.usb.config=mass_storage
+    persist.sys.usb.config=mass_storage \
+    qemu.hw.mainkeys=0
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml \
@@ -55,9 +56,11 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
     frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
     frameworks/native/data/etc/android.hardware.touchscreen.multitouch.distinct.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.distinct.xml \
-    frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml \
-    $(VENDOR_PATH)/proprietary/system/etc/permissions/features.xml:system/etc/permissions/features.xml \
-    $(VENDOR_PATH)/proprietary/system/etc/permissions/platform.xml:system/etc/permissions/platform.xml
+    frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml
+
+PRODUCT_PACKAGES += \
+	rktools \
+    com.android.future.usb.accessory    
 
 # Publish that we support the live wallpaper feature.
 PRODUCT_PACKAGES += \
@@ -65,7 +68,8 @@ PRODUCT_PACKAGES += \
 	LiveWallpapersPicker \
 	MagicSmokeWallpapers \
 	HoloSpiralWallpaper \
-	Email
+	Email \
+	LegacyCamera
 
 PRODUCT_PACKAGES += \
 	VisualizationWallpapers \
@@ -73,7 +77,6 @@ PRODUCT_PACKAGES += \
 	libjni_pinyinime \
 	hostapd_rtl \
     akmd \
-    drmservice \
     charger \
 	charger_res_images\
 	make_ext4fs \
@@ -95,9 +98,6 @@ PRODUCT_PACKAGES += \
     camera.rk2928board \
     gpu.rk2928board
 
-PRODUCT_PACKAGES += \
-    com.android.future.usb.accessory
-    
 PRODUCT_COPY_FILES += \
     $(VENDOR_PATH)/proprietary/system/etc/vold.fstab:system/etc/vold.fstab     
     

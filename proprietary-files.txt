@@ -15,6 +15,11 @@ system/lib/libstagefrighthw.so
 system/lib/libvpu.so 
 system/lib/libyuvtorgb.so 
 system/lib/registry
+system/lib/libdrmdecrypt.so
+system/lib/libdrmwvmplugin.so
+system/lib/libwvdrm_L3.so
+system/lib/libwvm.so
+system/lib/libWVStreamControlAPI_L3.so
 system/lib/libMali.so  
 system/lib/modules/8188eu.ko
 system/lib/modules/8188eu.ko.3.0.8+
@@ -72,7 +77,6 @@ system/bin/mkntfs
 system/bin/ntfs-3g 
 system/bin/performance 
 system/bin/vold
-system/bin/drmservice
 system/etc/vold.fstab
 system/usr/keylayout/rk29-keypad.kl
 system/etc/wifi/wpa_supplicant.conf

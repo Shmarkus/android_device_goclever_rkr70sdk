@@ -27,22 +27,15 @@ TARGET_PREBUILT_KERNEL := device/goclever/rkr70sdk/kernel
 BOARD_HAS_NO_SELECT_BUTTON := true
 
 TARGET_ARCH_VARIANT_CPU := cortex-a9
-TARGET_PROVIDES_INIT := true
 TARGET_RECOVERY_INITRC := device/goclever/rkr70sdk/recovery/init.rc
 BOARD_CUSTOM_BOOTIMG_MK := device/goclever/rkr70sdk/rkcrc_sign.mk
 
-TARGET_BOARD_PLATFORM_GPU := mali400
 DEVICE_RESOLUTION := 800x480
 TARGET_USERIMAGES_USE_EXT4 := true
 
 #Vold
-BOARD_UMS_LUNFILE := /sys/class/android_usb/android0/f_mass_storage/lun/file
-BOARD_UMS_2ND_LUNFILE := /sys/class/android_usb/android0/f_mass_storage/lun1/file
-TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storage/lun/file
-
-#HDMI
-TARGET_HAVE_HDMI_OUT := false
-BOARD_USES_HDMI := false
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storage/lun%d/file
+TARGET_USE_CUSTOM_SECOND_LUN_NUM := 1
 
 #Audio
 BOARD_USES_GENERIC_AUDIO := false
@@ -55,18 +48,10 @@ TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := device/goclever/rkr70sdk/releasetoo
 # Graphics
 BOARD_EGL_CFG := vendor/goclever/rkr70sdk/proprietary/system/lib/egl/egl.cfg
 USE_OPENGL_RENDERER := true
-TARGET_DISABLE_TRIPLE_BUFFERING := true
-ENABLE_WEBGL := true
-# For WebKit rendering issue
-TARGET_FORCE_CPU_UPLOAD := true
 
 COMMON_GLOBAL_CFLAGS += -DSURFACEFLINGER_FORCE_SCREEN_RELEASE -DNO_RGBX_8888 -DMISSING_GRALLOC_BUFFERS
 
-# HWComposer
-BOARD_USES_HWCOMPOSER := true
-
 TARGET_EXTRA_CFLAGS += $(call cc-option,-mtune=cortex-a9,$(call cc-option,-mtune=cortex-a8)) $(call cc-option,-mcpu=cortex-a9,$(call cc-option,-mcpu=cortex-a8))
-TARGET_EXTRA_CPPFLAGS += $(call cc-option,-mtune=cortex-a9,$(call cc-option,-mtune=cortex-a8)) $(call cc-option,-mcpu=cortex-a9,$(call cc-option,-mcpu=cortex-a8))
 
 # Wifi stuff
 BOARD_WIFI_VENDOR                := realtek
@@ -79,3 +64,9 @@ BOARD_WLAN_DEVICE                := rtl8188eu
 
 WIFI_DRIVER_MODULE_PATH          := "/system/lib/modules/8188eu.ko"
 WIFI_DRIVER_MODULE_NAME          := wlan
+
+#midagi nendest tegi kiiremaks
+TARGET_BOARD_PLATFORM_GPU := mali400
+#TARGET_DISABLE_TRIPLE_BUFFERING := true
+ENABLE_WEBGL := true #juutuub?
+#TARGET_FORCE_CPU_UPLOAD := true
